@@ -1,0 +1,14 @@
+# Optional "Blueprint" for Render (https://render.com).
+# Lets you deploy with one click: Render Dashboard -> New -> Blueprint -> pick your GitHub repo.
+# This creates ONE web service that runs the Node/Socket.IO server AND serves the React app.
+services:
+  - type: web
+    name: shadab-phuphi-game
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
